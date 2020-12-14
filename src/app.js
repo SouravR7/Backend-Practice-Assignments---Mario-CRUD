@@ -15,8 +15,8 @@ app.use(bodyParser.json())
 
 app.get("/mario", (req,res)=>{
 
-    // let characters = await marioModel.find({});
-    // res.send(characters);
+     let characters = await marioModel.find({});
+     res.send(characters);
 
     marioModel.find({}, (err, data) => {
         if(err){
