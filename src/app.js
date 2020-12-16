@@ -5,12 +5,10 @@ const marioModel = require('./models/marioChar');
 app.use(express.json());
 
 app.get("/mario", (req,res)=>{
-
     marioModel.find().then(data => res.send(data))
     .catch(error => res.send(error));
     return;
 });
-
 app.get("/mario/:id", (req,res)=>{
     marioModel.findById(req.params.id)
     .then((data) => {
@@ -19,7 +17,6 @@ app.get("/mario/:id", (req,res)=>{
     .catch((error)=>{
         res.status(400).json({"message": error.message});
     })});
-
 
 app.post("/mario",(req,res)=>{
     let name = req.body.name;
